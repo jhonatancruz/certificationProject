@@ -3,7 +3,7 @@
 ## Setup Steps
 
   
-**This assumes that you are using the command line and already have node and npm on your computer**
+** Warning: This assumes that you are using the command line and already have node and npm on your computer**
 
 ### Pre-Steps
 
