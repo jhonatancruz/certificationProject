@@ -34,5 +34,5 @@ constructor(private router: Router, private user : UserService )
         //navigate to tasks.
         this.router.navigate(['/home-user']);
     }
-
+  }
 }
