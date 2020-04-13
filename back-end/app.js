@@ -13,7 +13,7 @@ const userRoutes = require('./routes/users')
 
 mongoose.connect(
     process.env.MONGODB_URL,
-    { useNewUrlParser: true, useUnifiedTopology: true },
+    { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify:false },
     () => console.log('DB connected!')
 )
 
