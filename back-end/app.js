@@ -6,7 +6,7 @@ const cors = require('cors')
 
 const weatherRoutes = require('./routes/weather')
 const newsRoutes = require('./routes/news')
-
+const mapsRoutes = require('./routes/map')
 
 
 mongoose.connect(
@@ -26,6 +26,8 @@ app.use(bodyParser.json())
 
 app.use('/weather', weatherRoutes)
 app.use('/news', newsRoutes)
+app.use('/maps', mapsRoutes)
+
 
 
 module.exports = app
