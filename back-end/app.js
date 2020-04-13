@@ -4,7 +4,6 @@ const mongoose = require('mongoose')
 const logger = require('morgan')
 const cors = require('cors')
 
-const testRoutes = require('./routes/test')
 const weatherRoutes = require('./routes/weather')
 const newsRoutes = require('./routes/news')
 
@@ -25,7 +24,6 @@ app.use(logger('dev'))
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
-app.use('/', testRoutes)
 app.use('/weather', weatherRoutes)
 app.use('/news', newsRoutes)
 
