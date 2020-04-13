@@ -15,6 +15,15 @@ router.get('/', (req,res)=>{
         })
 })
 
+//delete news by id
+router.delete('/:id', (req, res) => {
+    const { id } = req.params
+
+    News.findByIdAndRemove(id)
+        .then(news => res.json(news))
+        .catch(err => res.status(400).json(err))
+})
+
 router.get('/query', (req, res) => {
     // querying with a query word
     const date= new Date()
