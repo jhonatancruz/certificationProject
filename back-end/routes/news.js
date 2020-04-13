@@ -1,6 +1,9 @@
 const express = require('express')
 const router = express.Router()
 const axios = require('axios').default;
+var mongo = require('mongodb')
+var ObjectId= mongo.ObjectId;
+
 
 const News=require('../models/News')
 
@@ -38,8 +41,26 @@ router.get('/', (req,res)=>{
 })
 
 //Update by id
-
-
+router.put('/:id', (req, res) => {
+    const {id}= req.params
+    const { sourceName, author, title, description, type, url, urlToImage, content } = req.body
+    
+    const data={
+        sourceName: sourceName,
+        author : author,
+        title: title,
+        description: description,
+        type: type,
+        url: url,
+        urlToImage: urlToImage,
+        content: content
+    }
+    News.findOneAndUpdate(id, data)
+        .then(updatedList => {
+            res.json(updatedList)
+        })
+        .catch(err => res.status(400).json(err))
+})
 
 
 //delete news by id
