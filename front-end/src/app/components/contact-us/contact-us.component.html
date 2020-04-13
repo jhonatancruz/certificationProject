@@ -1,0 +1,77 @@
+<html ang="en">
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+            <a class="navbar-brand" href="#">Media App</a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/sports">Sports</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about_us">About Us</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/contact_us">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <br><br><br>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel">
+                    <div class="panel-body">
+                        <h5> Contact Us </h5>
+                        <div class="panel panel-info">
+                            <div class="panel-body">
+                                <form action="/addContactUs" method="POST">
+                                    <div class="form-group">
+                                        <label for="contact_name">Name</label>
+                                        <input type="text" id="contact_name" name="contact_name" class="form-control"
+                                            required />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="contact_email">Email</label>
+                                        <input type="email" id="contact_email" name="contact_email" class="form-control"
+                                            required />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="contact_message">Message</label>
+                                        <textarea rows="5" id="contact_message" name="contact_message"
+                                            class="form-control" required></textarea>
+                                    </div>
+
+                                    <hr />
+                                    <button type="submit" class="btn btn-info">SUBMIT</button>
+                                    <button type="reset" class="btn btn-warning">RESET</button>
+                                    <hr />
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>
