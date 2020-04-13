@@ -4,6 +4,28 @@ const axios = require('axios').default;
 
 const News=require('../models/News')
 
+
+// Create news
+router.post('/', (req, res) => {
+    const { sourceName, author, title, description, type, url, urlToImage, content } = req.body
+
+    const news = new News()
+
+    news.sourceName = sourceName
+    news.author = author
+    news.title= title
+    news.description= description
+    news.type= type
+    news.url= url
+    news.urlToImage= urlToImage
+    news.publishedAt= new Date()
+    news.content= content
+
+    news.save()
+        .then(list => res.json(list))
+        .catch(err => res.status(400).json(err))
+})
+
 // Read all news 
 router.get('/', (req,res)=>{
     News.find()
@@ -15,6 +37,11 @@ router.get('/', (req,res)=>{
         })
 })
 
+//Update by id
+
+
+
+
 //delete news by id
 router.delete('/:id', (req, res) => {
     const { id } = req.params
@@ -24,8 +51,9 @@ router.delete('/:id', (req, res) => {
         .catch(err => res.status(400).json(err))
 })
 
+
+// Get news by query word
 router.get('/query', (req, res) => {
-    // querying with a query word
     const date= new Date()
     const formattedDate= date.getFullYear()+'-'+date.getMonth()+'-'+date.getDate()
     const apiKey= 'e105798436064d8eb738c72a933fa352'
@@ -39,14 +67,14 @@ router.get('/query', (req, res) => {
             res.send(error)
         })
 })
+
+// Get news by category
 router.get('/breaking', (req, res) => {
-    // querying by category
     const apiKey= 'e105798436064d8eb738c72a933fa352'
     const {category}= req.query
     
     axios.get('https://newsapi.org/v2/top-headlines?country=us&category='+category+'&apiKey='+apiKey)
         .then(function(result){
-            // console.log(result.data.articles)
             var allNews=[]
             for(i=0; i<result.data.articles.length; i++){
                 const sourceName= result.data.articles[i].source.name
@@ -59,7 +87,7 @@ router.get('/breaking', (req, res) => {
                 const content= result.data.articles[i].content
 
                 const news= new News()
-                news.soureName= sourceName
+                news.sourceName= sourceName
                 news.author= author
                 news.title= title
                 news.description= description
