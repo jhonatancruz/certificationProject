@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const axios = require('axios').default;
 
-
+// get weather by longitude and latitude
 router.get('/', (req, res) => {
     const appid= '4ddea071b5c9616feaab9b5a09b40c59'
     const {lat, lon}= req.query
@@ -15,15 +15,6 @@ router.get('/', (req, res) => {
             console.log(error)
             res.send(error)
         })
-    // User.find()
-    //     .then(users =>  {
-    //         res.json(users)
-    //     })
-    //     .catch(err => {
-    //         res.status(400).json(err)
-    //     })
-    // console.log((appid))
-    // res.send(q+appid)
 })
 
 module.exports = router
