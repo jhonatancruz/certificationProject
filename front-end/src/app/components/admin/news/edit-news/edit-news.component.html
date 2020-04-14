@@ -6,8 +6,39 @@
     </div>
 
     <div class="row">
-        <div class="co">
-            edit news works
+        <div class="col">
+            <div *ngIf="news.length === 0;
+                else newsList" class="alert alert-info">
+                No Bugs added yet!
+            </div>
+
+            <ng-template #newsList>
+                <!-- <div class="card">
+                    <div class="card-body">
+                        <input type="text" class="form-control" placeholder="Search..." [(ngModel)]="query">
+                    </div>
+                </div>
+                <br> -->
+                <div class="container">
+                    <div class="row text-center">
+                        <div class="col-2">Title</div>
+                        <div class="col-6">Description</div>
+                        <div class="col-2">Published At</div>
+                        <div class="col-2">Edit/Delete</div>
+                    </div>
+                </div>
+                <ul class="list-group fafa">
+                    <li class="list-group-item fafa" *ngFor="let n of news">
+                        <div class="row text-center">
+                            <div class="col-2">{{n.title}}</div>
+                            <div class="col-6">{{n.description}}</div>
+                            <div class="col-2">{{n.publishedAt | date}}</div>
+                            <div class="col-2">Edit/Delete</div>
+                        </div>
+                    </li>
+                </ul>
+            </ng-template>
+
         </div>
     </div>
 </div>
