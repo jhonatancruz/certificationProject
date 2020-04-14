@@ -18,6 +18,7 @@ import { EditNewsComponent } from './components/admin/news/edit-news/edit-news.c
 import { NewsListComponent } from './components/admin/news/edit-news/news-list/news-list.component';
 import { NewsListItemComponent } from './components/admin/news/edit-news/news-list/news-list-item/news-list-item.component';
 import { HomeComponent } from './components/home/home.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
 
 // TODO: change/remove the app Component route
 const appRoutes: Routes = [
@@ -43,7 +44,8 @@ const appRoutes: Routes = [
     EditNewsComponent,
     NewsListComponent,
     NewsListItemComponent,
-    HomeComponent
+    HomeComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,
