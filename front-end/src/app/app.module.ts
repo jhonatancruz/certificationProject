@@ -1,5 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
+
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule, Routes } from '@angular/router'
+
 
 import { AppComponent } from './app.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
@@ -12,6 +17,18 @@ import { NewsFormComponent } from './components/admin/news/news-form/news-form.c
 import { EditNewsComponent } from './components/admin/news/edit-news/edit-news.component';
 import { NewsListComponent } from './components/admin/news/edit-news/news-list/news-list.component';
 import { NewsListItemComponent } from './components/admin/news/edit-news/news-list/news-list-item/news-list-item.component';
+import { HomeComponent } from './components/home/home.component';
+
+// TODO: change/remove the app Component route
+const appRoutes: Routes = [
+  { path: 'admin', component: AdminComponent },
+  { path: 'admin/login', component: AdminLoginComponent },
+  { path: 'news/add', component: NewsFormComponent },
+  { path: 'news/edit', component: EditNewsComponent },
+  { path: 'home', component: AppComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' }
+]
+
 
 @NgModule({
   declarations: [
@@ -25,10 +42,14 @@ import { NewsListItemComponent } from './components/admin/news/edit-news/news-li
     NewsFormComponent,
     EditNewsComponent,
     NewsListComponent,
-    NewsListItemComponent
+    NewsListItemComponent,
+    HomeComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
