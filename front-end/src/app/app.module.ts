@@ -28,6 +28,8 @@ const appRoutes: Routes = [
   { path: 'news/add', component: NewsFormComponent, canActivate: [AuthGuard] },
   { path: 'news/edit', component: EditNewsComponent, canActivate: [AuthGuard] },
   { path: 'home', component: AppComponent },
+  { path: 'contact', component: ContactUsComponent },
+  { path: 'about', component: AboutUsComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 
