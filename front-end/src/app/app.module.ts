@@ -3,8 +3,8 @@ import { NgModule, Component } from '@angular/core';
 
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { RouterModule, Routes } from '@angular/router'
-
+import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './guards/auth.guard';
 
 import { AppComponent } from './app.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
@@ -19,15 +19,18 @@ import { NewsListComponent } from './components/admin/news/edit-news/news-list/n
 import { NewsListItemComponent } from './components/admin/news/edit-news/news-list/news-list-item/news-list-item.component';
 import { HomeComponent } from './components/home/home.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
+import { PageNotFoundComponent } from './components/shared/page-not-found/page-not-found/page-not-found.component';
 
 // TODO: change/remove the app Component route
 const appRoutes: Routes = [
-  { path: 'admin', component: AdminComponent },
-  { path: 'admin/login', component: AdminLoginComponent },
-  { path: 'news/add', component: NewsFormComponent },
-  { path: 'news/edit', component: EditNewsComponent },
+  { path: 'admin', component: AdminComponent, canActivate: [AuthGuard] },
+  { path: 'admin/login', component: AdminLoginComponent},
+  { path: 'news/add', component: NewsFormComponent, canActivate: [AuthGuard] },
+  { path: 'news/edit', component: EditNewsComponent, canActivate: [AuthGuard] },
   { path: 'home', component: AppComponent },
-  { path: '', redirectTo: '/home', pathMatch: 'full' }
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '**', component: PageNotFoundComponent }
+
 ]
 
 
@@ -45,7 +48,8 @@ const appRoutes: Routes = [
     NewsListComponent,
     NewsListItemComponent,
     HomeComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

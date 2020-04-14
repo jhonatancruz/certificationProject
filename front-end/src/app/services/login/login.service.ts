@@ -43,6 +43,10 @@ export class LoginService {
     localStorage.removeItem('token');
   }
 
+  getUsername(){
+    return localStorage.getItem('username');
+  }
+
 }
 
 
