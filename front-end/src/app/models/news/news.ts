@@ -1,5 +1,6 @@
 export class News 
 {
+    _id : string;
     sourceName: string;
     author: string;
     title: string;
@@ -10,7 +11,8 @@ export class News
     publishedAt: string;
     content: string;
 
-    constructor(sourceName,
+    constructor(_id,
+        sourceName,
         author,
         title,
         description,
@@ -19,6 +21,7 @@ export class News
         urlToImage,
         publishedAt,
         content){
+            this._id = _id
             this.sourceName = sourceName;
             this.author = author;
             this.title = title;

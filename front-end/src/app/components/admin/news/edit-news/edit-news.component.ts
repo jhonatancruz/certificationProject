@@ -25,4 +25,5 @@ export class EditNewsComponent implements OnInit {
     })
   }
 
+
 }

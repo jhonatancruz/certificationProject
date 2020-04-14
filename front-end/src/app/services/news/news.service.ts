@@ -22,6 +22,16 @@ export class NewsService {
       header: new HttpHeaders()
         .set('Authorization',  `Basic ${this.loginService.getToken()}`)
     }
-    this.http.post(this.uri, header, data)
+    return this.http.post(this.uri, header, data)
+  }
+
+  deleteNewsByID(id:string){
+    console.log('here');
+    
+    let header = {
+      header: new HttpHeaders()
+        .set('Authorization',  `Basic ${this.loginService.getToken()}`)
+    }
+    return this.http.delete(this.uri+'/'+id);
   }
 }

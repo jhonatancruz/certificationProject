@@ -21,6 +21,8 @@ import { HomeComponent } from './components/home/home.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { PageNotFoundComponent } from './components/shared/page-not-found/page-not-found/page-not-found.component';
 import { SportsComponent } from './components/home/sports/sports/sports.component';
+import { EditNewsItemComponent } from './components/admin/news/edit-news/edit-news-item/edit-news-item.component';
+import { AlertComponent } from './components/shared/alert/alert/alert.component';
 
 // TODO: change/remove the app Component route
 const appRoutes: Routes = [
@@ -54,7 +56,9 @@ const appRoutes: Routes = [
     HomeComponent,
     AboutUsComponent,
     PageNotFoundComponent,
-    SportsComponent
+    SportsComponent,
+    EditNewsItemComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,

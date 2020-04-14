@@ -1,0 +1,8 @@
+<div class="row text-center">
+    <div class="col-2">{{editNewsItem.title}}</div>
+    <div class="col-6">{{editNewsItem.description}}</div>
+    <div class="col-2">{{editNewsItem.publishedAt | date}}</div>
+    <div class="col-2">
+        <button (click)="handleDelete()">delete</button>
+    </div>
+</div>

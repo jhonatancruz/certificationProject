@@ -17,7 +17,7 @@ export class NewsFormComponent implements OnInit {
 
   constructor( 
    
-    private NewsService: NewsService
+    private newsService: NewsService
   
    ){}
 
@@ -40,9 +40,9 @@ export class NewsFormComponent implements OnInit {
     //   console.log('News Added.')
     
     // })
+  }
 
   
-  }
 
 }
 
