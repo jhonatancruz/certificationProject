@@ -18,11 +18,8 @@ export class NewsService {
   }
 
   addNews(data : any){
-    let header = {
-      header: new HttpHeaders()
-        .set('Authorization',  `Basic ${this.loginService.getToken()}`)
-    }
-    return this.http.post(this.uri, header, data)
+    let options = this.generateAuthorizationHeader();
+    return this.http.post(this.uri, data, options)
   }
 
   deleteNewsByID(id:string){
