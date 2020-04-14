@@ -17,7 +17,7 @@ export class NewsFormComponent implements OnInit {
 
   constructor( 
    
-    private newsService: NewsService
+    private NewsService: NewsService
   
    ){}
 
@@ -35,14 +35,14 @@ export class NewsFormComponent implements OnInit {
 
     };
 
-    // this.NewsService.addNews(data).subscribe(() => {
+    //\\ this.NewsService.addNews(data).subscribe(() => {
     
     //   console.log('News Added.')
     
     // })
-  }
 
   
+  }
 
 }
 

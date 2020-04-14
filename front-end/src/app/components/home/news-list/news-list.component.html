@@ -15,17 +15,24 @@
         </div>
     </div>
     <br> -->
-    <div class="container">
-        <div class="row text-center">
-            <div class="col">Name</div>
-            <div class="col">Data</div>
-            <div class="col">Price</div>
-        </div>
-    </div>
-    <ul class="list-group fafa">
-        <li class="list-group-item fafa" *ngFor="let n of news">
-            <!-- <app-shopping-list-item [productItem]="product"></app-shopping-list-item> -->
-            {{n.author}}
-        </li>
+    <tr>
+    
+        <th>Title</th>
+        <th>Description</th>
+        <th>Published At</th>
+   
+</tr>
+<!-- </div> -->
+
+        <!-- <app-shopping-list-item [productItem]="product"></app-shopping-list-item> -->
+    
+        <tr>
+            <ul class="list-group fafa">
+                <li class="list-group-item fafa" *ngFor="let n of news">
+       
+            <td>{{n.title}}</td>
+            <td>{{n.description}}</td>
+            <td>{{n.publishedAt}}</td>
     </ul>
+
 </ng-template>

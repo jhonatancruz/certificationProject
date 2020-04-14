@@ -34,6 +34,7 @@ const appRoutes: Routes = [
   { path: 'sports', component: SportsComponent },
   { path: 'contact', component: ContactUsComponent },
   { path: 'about', component: AboutUsComponent },
+  {path: 'news', component: NewsListComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 
