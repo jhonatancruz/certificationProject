@@ -26,12 +26,15 @@ export class NewsService {
   }
 
   deleteNewsByID(id:string){
-    console.log('here');
+
+    const token = 'b ' + this.loginService.getToken();
+    console.log(token);
+
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': token });
+    let options = { headers: headers };
     
-    let header = {
-      header: new HttpHeaders()
-        .set('Authorization',  `Basic ${this.loginService.getToken()}`)
-    }
-    return this.http.delete(this.uri+'/'+id);
+    return this.http.delete(this.uri+'/'+id, options);
   }
 }
