@@ -9,6 +9,7 @@ const newsRoutes = require('./routes/news')
 const mapsRoutes = require('./routes/maps')
 const loginRoutes = require('./routes/login')
 const userRoutes = require('./routes/users')
+const contactRoutes = require('./routes/contact')
 
 
 mongoose.connect(
@@ -31,6 +32,7 @@ app.use('/news', newsRoutes)
 app.use('/maps', mapsRoutes)
 app.use('/login', loginRoutes)
 app.use('/users', userRoutes)
+app.use('/contact', contactRoutes)
 
 
 module.exports = app
