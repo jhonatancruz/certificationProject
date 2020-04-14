@@ -2,8 +2,8 @@ const express = require('express')
 const router = express.Router()
 const sgMail = require('@sendgrid/mail');
 
-const apiKey = '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' // should be store in env variable
-const senderVerifiedEmail= 'jcruz3@drew.edu'
+const apiKey = process.env.SEND_GRID_API_KEY 
+const senderVerifiedEmail= process.env.SENDER_EMAIL
 
 // sends email
 router.post('/', (req, res) => {
