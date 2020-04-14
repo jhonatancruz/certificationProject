@@ -1,7 +1,3 @@
-var mongo = require('mongodb')
-var ObjectId= mongo.ObjectId;
-
-// include mongoose
 const mongoose= require('mongoose')
 
 // create a schema
@@ -30,7 +26,6 @@ NewsSchema.methods.generateNewsObject = function () {
         urlToImage: this.urlToImage,
         publishedAt: this.publishedAt,
         content: this.content
-        // token:this.generateToken()
     }
 }
 
