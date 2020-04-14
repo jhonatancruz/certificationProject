@@ -27,14 +27,18 @@ export class NewsService {
 
   deleteNewsByID(id:string){
 
+    let options = this.generateAuthorizationHeader();
+    
+    return this.http.delete(this.uri+'/'+id, options);
+  }
+
+  generateAuthorizationHeader(){
     const token = 'b ' + this.loginService.getToken();
     console.log(token);
 
     let headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': token });
-    let options = { headers: headers };
-    
-    return this.http.delete(this.uri+'/'+id, options);
+    return { headers: headers };
   }
 }
