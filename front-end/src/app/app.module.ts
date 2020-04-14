@@ -15,8 +15,8 @@ import { AdminLoginComponent } from './components/admin/admin-login/admin-login.
 import { AdminHeaderComponent } from './components/admin/admin-header/admin-header.component';
 import { NewsFormComponent } from './components/admin/news/news-form/news-form.component';
 import { EditNewsComponent } from './components/admin/news/edit-news/edit-news.component';
-import { NewsListComponent } from './components/admin/news/edit-news/news-list/news-list.component';
-import { NewsListItemComponent } from './components/admin/news/edit-news/news-list/news-list-item/news-list-item.component';
+import { NewsListComponent } from './components/home/news-list/news-list.component';
+import { NewsListItemComponent } from './components/home/news-list/news-list-item/news-list-item.component';
 import { HomeComponent } from './components/home/home.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { PageNotFoundComponent } from './components/shared/page-not-found/page-not-found/page-not-found.component';

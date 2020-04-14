@@ -47,6 +47,10 @@ export class LoginService {
     return localStorage.getItem('username');
   }
 
+  getToken(){
+    return localStorage.getItem('token');
+  }
+
 }
 
 
