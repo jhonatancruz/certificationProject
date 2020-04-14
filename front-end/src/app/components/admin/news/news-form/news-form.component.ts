@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NewsService } from 'src/app/services/news/news.service';
+
 
 @Component({
   selector: 'app-news-form',
@@ -7,9 +9,40 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewsFormComponent implements OnInit {
 
-  constructor() { }
+  title: string = '';
+  description: string = '';
+  url: string = '';
+  urlToImage: string = '';
+  publishedAt: Date; 
+
+  constructor( 
+   
+    private NewsService: NewsService
+  
+   ){}
 
   ngOnInit(): void {
   }
 
+  handleSubmit(){
+
+    const data = {
+      title: this.title,
+      description: this.description,
+      url: this.url,
+      urlToImage: this.urlToImage,
+      publishedAt: this.publishedAt 
+
+    };
+
+    // this.NewsService.addNews(data).subscribe(() => {
+    
+    //   console.log('News Added.')
+    
+    // })
+
+  
+  }
+
 }
+
