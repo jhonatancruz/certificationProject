@@ -20,8 +20,6 @@ export class EditNewsItemComponent implements OnInit {
   }
 
   handleDelete(){
-    console.log(this.editNewsItem._id);
-    
     this.newsService.deleteNewsByID(this.editNewsItem._id)
     .subscribe(
       () => {
