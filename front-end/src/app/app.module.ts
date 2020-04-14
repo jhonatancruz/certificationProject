@@ -20,6 +20,7 @@ import { NewsListItemComponent } from './components/home/news-list/news-list-ite
 import { HomeComponent } from './components/home/home.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { PageNotFoundComponent } from './components/shared/page-not-found/page-not-found/page-not-found.component';
+import { SportsComponent } from './components/home/sports/sports/sports.component';
 
 // TODO: change/remove the app Component route
 const appRoutes: Routes = [
@@ -27,7 +28,8 @@ const appRoutes: Routes = [
   { path: 'admin/login', component: AdminLoginComponent},
   { path: 'news/add', component: NewsFormComponent, canActivate: [AuthGuard] },
   { path: 'news/edit', component: EditNewsComponent, canActivate: [AuthGuard] },
-  { path: 'home', component: AppComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'sports', component: SportsComponent },
   { path: 'contact', component: ContactUsComponent },
   { path: 'about', component: AboutUsComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -51,7 +53,8 @@ const appRoutes: Routes = [
     NewsListItemComponent,
     HomeComponent,
     AboutUsComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    SportsComponent
   ],
   imports: [
     BrowserModule,
