@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router()
+const {ObjectId} =require('mongodb')
 
 const News = require('../models/News')
 const auth = require('../middlewares/auth')
@@ -38,11 +39,27 @@ router.get('/', (req, res) => {
 })
 
 // find one by id
-router.get('/:id', (req, res) =>
-{
+router.get('/id/:id', (req, res) =>{
     const { id } = req.params
 
     News.findById(id)
+        .then(news => {
+            if (news){
+                res.json(news)
+            } else{
+                res.status(404).json({
+                    msg: 'News not found'
+                })
+            }
+        })
+        .catch(err => res.status(400).json(err))
+})
+
+// find by type
+router.get('/type/:type', (req, res) =>{
+    const { type } = req.params
+
+    News.find({'type':type})
         .then(news => {
             if (news){
                 res.json(news)
@@ -102,8 +119,9 @@ router.get('/query', auth, async (req, res) => {
 })
 
 // Get headline breaking news
-router.get('/breaking', auth, async (req, res) => {
+router.get('/breaking', auth,async (req, res) => {
     newsApi.getTopNews().then(result => {
+        console.log(result)
         News.insertMany(result)
             .then(result => {
                 res.json(result)
