@@ -30,6 +30,7 @@ import { DocumentComponent } from './components/document/document.component';
 import { WeatherComponent } from './components/weather/weather/weather.component';
 import { KelvinToFahrenheitPipe } from './pipes/kelvin-to-fahrenheit/kelvin-to-fahrenheit.pipe';
 import { TopNewsSliderComponent } from './components/home/top-news-slider/top-news-slider/top-news-slider.component';
+import { SearchPipe } from './pipes/search/search.pipe';
 
 const config: SocketIoConfig = { url: 'http://localhost:4444', options: {} };
 
@@ -76,7 +77,8 @@ const appRoutes: Routes = [
     DocumentComponent,
     WeatherComponent,
     KelvinToFahrenheitPipe,
-    TopNewsSliderComponent
+    TopNewsSliderComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,

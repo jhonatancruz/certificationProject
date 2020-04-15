@@ -18,7 +18,7 @@ export class NewsService {
   }
 
   getNewsByID(id:string){
-    return this.http.get(this.uri+'/'+id);
+    return this.http.get(this.uri+'/id/'+id);
   }
 
   addNews(data : any){
