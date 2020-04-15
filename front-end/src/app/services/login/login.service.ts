@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { User } from 'src/app/models/user/user';
 
 const loginUri = 'http://localhost:3000/login/login';
+const registerUri = 'http://localhost:3000/login/register';
 
 
 @Injectable({
@@ -33,6 +34,11 @@ export class LoginService {
       })
 
     return loginSuccess;
+  }
+
+  register(data : any){
+    return this.http.post(registerUri, data);
+
   }
 
   logout() 

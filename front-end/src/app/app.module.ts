@@ -31,6 +31,7 @@ import { WeatherComponent } from './components/weather/weather/weather.component
 import { KelvinToFahrenheitPipe } from './pipes/kelvin-to-fahrenheit/kelvin-to-fahrenheit.pipe';
 import { TopNewsSliderComponent } from './components/home/top-news-slider/top-news-slider/top-news-slider.component';
 import { SearchPipe } from './pipes/search/search.pipe';
+import { NewUserFormComponent } from './components/admin/new-user-form/new-user-form/new-user-form.component';
 
 const config: SocketIoConfig = { url: 'http://localhost:4444', options: {} };
 
@@ -78,7 +79,8 @@ const appRoutes: Routes = [
     WeatherComponent,
     KelvinToFahrenheitPipe,
     TopNewsSliderComponent,
-    SearchPipe
+    SearchPipe,
+    NewUserFormComponent
   ],
   imports: [
     BrowserModule,

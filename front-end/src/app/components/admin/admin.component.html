@@ -7,7 +7,56 @@
 
     <div class="row">
         <div class="col">
-            <p>admin home works</p>
+            <p>
+                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#addNewAdmin" aria-expanded="false" aria-controls="collapseExample">
+                    Add new admin
+                </button>
+
+                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#generateSportsNews" aria-expanded="false" aria-controls="collapseExample">
+                    Generate Sports News
+                </button>
+
+                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#generateBreakingNews" aria-expanded="false" aria-controls="collapseExample">
+                    Generate Breaking News
+                </button>
+            </p>
+        
+            <div class="collapse" id="addNewAdmin">
+                <div class="card card-body">
+                    <app-new-user-form></app-new-user-form>
+                </div>
+            </div>
+
+            <div class="collapse" id="generateSportsNews">
+                <div class="card card-body">
+                    generateSportsNews
+                </div>
+            </div>
+
+            <div class="collapse" id="generateBreakingNews">
+                <div class="card card-body">
+                    generateBreakingNews
+                </div>
+            </div>
+
+
         </div>
     </div>
+
+    <div class="row">
+        <div class="col">
+            <br> <br>
+            <app-weather></app-weather>
+        </div>
+    </div>
+
+    <br>
+
+    
+
+    <!-- <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item active" aria-current="page">Home</li>
+        </ol>
+    </nav> -->
 </div>
