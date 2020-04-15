@@ -1,0 +1,60 @@
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>	
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <body>
+      <div class="main-section" id="main-section">
+    <div class="row border-chat">
+      <div class="col-md-12 col-sm-12 col-xs-12 first-section">
+        <div class="row">
+          <div class="col-md-8 col-sm-6 col-xs-6 left-first-section" (click)="openChat()">
+            <p>Chat</p>
+          </div>
+          <div class="col-md-4 col-sm-6 col-xs-6 right-first-section">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row border-chat">
+      <div class="col-md-12 col-sm-12 col-xs-12 second-section">
+        <div class="chat-section">
+          <ul *ngFor="let msg of messages">
+
+          
+
+            <div *ngIf="user===msg.user; else notSameUser">
+              <li>
+                <div class="right-chat">
+                  <p>{{msg.time}} {{msg.text}}</p>
+                </div>
+              </li>
+            </div>
+            
+            <ng-template #notSameUser>
+                  <li>
+                    <div class="left-chat">
+                      <p>{{msg.text}}</p>
+                      <span>{{msg.time}}</span>
+                    </div>
+                  </li>
+            </ng-template>
+           
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row border-chat">
+      <div class="col-md-12 col-sm-12 col-xs-12 third-section">
+        <div class="text-bar">
+          <form id="msgForm" class="bg-light" (ngSubmit)="sendMessage()">
+            <div class="input-group">
+              <input type="text" id="message" class="form-control" name="message" [(ngModel)]="message" placeholder="Type a message" autocomplete="off">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+  
+  

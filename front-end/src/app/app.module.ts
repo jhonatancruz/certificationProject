@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { NgModule, Component } from '@angular/core';
 
 import { FormsModule } from '@angular/forms';
@@ -20,11 +21,16 @@ import { NewsListItemComponent } from './components/admin/news/edit-news/news-li
 import { HomeComponent } from './components/home/home.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { PageNotFoundComponent } from './components/shared/page-not-found/page-not-found/page-not-found.component';
+import { DocumentListComponent } from './components/document-list/document-list.component';
+import { DocumentComponent } from './components/document/document.component';
+
+const config: SocketIoConfig = { url: 'http://localhost:4444', options: {} };
 
 // TODO: change/remove the app Component route
 const appRoutes: Routes = [
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuard] },
   { path: 'admin/login', component: AdminLoginComponent},
+  { path: 'chat', component: DocumentListComponent},
   { path: 'news/add', component: NewsFormComponent, canActivate: [AuthGuard] },
   { path: 'news/edit', component: EditNewsComponent, canActivate: [AuthGuard] },
   { path: 'home', component: AppComponent },
@@ -49,13 +55,16 @@ const appRoutes: Routes = [
     NewsListItemComponent,
     HomeComponent,
     AboutUsComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    DocumentListComponent,
+    DocumentComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    SocketIoModule.forRoot(config)
   ],
   providers: [],
   bootstrap: [AppComponent]
