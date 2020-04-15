@@ -11,7 +11,7 @@
 
     
         <div class="row">
-            <div class="col-4">Temparature (f)</div>
+            <div class="col-4">Temparature</div>
             <div class="col-2">Feels Like</div>
             <div class="col-2">Min Temp</div>
             <div class="col-2">Max Temp</div>
@@ -19,10 +19,10 @@
         </div>
 
         <div class="row">
-            <div class="col-4">{{temp | kelvinToFahrenheit}}</div>
-            <div class="col-2">{{feels_like  | kelvinToFahrenheit}}</div>
-            <div class="col-2">{{temp_min  | kelvinToFahrenheit}}</div>
-            <div class="col-2">{{temp_max  | kelvinToFahrenheit}}</div>
+            <div class="col-4">{{temp | kelvinToFahrenheit}} <span>&#176;f</span> </div>
+            <div class="col-2">{{feels_like  | kelvinToFahrenheit}} <span>&#176;f</span> </div>
+            <div class="col-2">{{temp_min  | kelvinToFahrenheit}} <span>&#176;f</span> </div>
+            <div class="col-2">{{temp_max  | kelvinToFahrenheit}} <span>&#176;f</span> </div>
             <div class="col-2">{{humidity}}%</div>
         </div>
 
