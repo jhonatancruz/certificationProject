@@ -26,6 +26,11 @@ export class NewsService {
     return this.http.post(this.uri, data, options)
   }
 
+  editNews(id : string, data : any){
+    let options = this.generateAuthorizationHeader();
+    return this.http.put(this.uri+'/'+id, data, options)
+  }
+
   deleteNewsByID(id:string){
 
     let options = this.generateAuthorizationHeader();

@@ -46,13 +46,13 @@ export class NewsFormComponent implements OnInit {
       .subscribe(
         () => {
           this.messenger.sendMsg({
-            msg: 'User added!',
+            msg: 'News added!',
             type: 'success'
           })
         },
         () => {
           this.messenger.sendMsg({
-            msg: 'User could not be added!',
+            msg: 'News could not be added!',
             type: 'danger'
           })
         }
