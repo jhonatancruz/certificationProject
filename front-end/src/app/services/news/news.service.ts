@@ -20,6 +20,9 @@ export class NewsService {
   getNewsByID(id:string){
     return this.http.get(this.uri+'/id/'+id);
   }
+  getSportNews(){
+    return this.http.get(this.uri+'/type'+'/sports');
+  }
 
   addNews(data : any){
     let options = this.generateAuthorizationHeader();
