@@ -37,10 +37,11 @@ export class DocumentComponent implements OnInit, OnDestroy {
       .subscribe((data:string)=>{
           this.messages.push(data)
       })
-    this.http.get("http://api.ipify.org/?format=json").subscribe((res:any)=>{
-      console.log(res)
-      this.user=res.ip
-    });  
+      // FUTURE CODE FOR IP TRACKING
+    // this.http.get("http://api.ipify.org/?format=json").subscribe((res:any)=>{
+    //   console.log(res)
+    //   this.user=res.ip
+    // });  
   }
 
   ngOnDestroy() {
@@ -56,9 +57,16 @@ export class DocumentComponent implements OnInit, OnDestroy {
 
   }
   openChat(){
-    var element = document.getElementById("main-section");
-    element.classList.toggle("open-more");
-    element.classList.toggle("third-section");
+    var person= prompt("Please enter your username");
+    if(person==null){
+        alert('You must enter username in order to access chat')
+        return
+    }else{
+      this.user=person
+      var element = document.getElementById("main-section");
+      element.classList.toggle("open-more");
+      element.classList.toggle("third-section");
+    }
   }
 
   closeChat(){

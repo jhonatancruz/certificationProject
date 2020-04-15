@@ -12,11 +12,11 @@
     transition:0.5s;
   }
   .border-chat{
-    border:1px solid lightskyblue;
+    border:1px solid #FD8468;
     margin: 0px;
   }
   .first-section{
-    background-color:lightskyblue;
+    background-color:#FD8468;
   }
   .first-section p{
     color:#fff;
@@ -69,7 +69,7 @@
     overflow: hidden;
   }
   .left-chat p,.right-chat p{
-    background-color:lightskyblue;
+    background-color:#FD8468;
     padding: 10px;
     color:#fff;
     border-radius: 5px; 
@@ -89,19 +89,19 @@
   .right-chat p{
     float:right;
     background-color: #FFFFFF;
-    color:lightskyblue;
+    color:#FD8468;
   }
   .third-section{
     border-top: 1px solid #EEEEEE;
   }
   .text-bar input{
-    width:100%;
+    width:90%;
     margin-left:-15px;
     padding:10px 10px;
     border:1px solid #fff;
   }
   .text-bar a i{
-    background-color:lightskyblue;
+    background-color:#FD8468;
     color:#fff;
     width:30px;
     height:30px;
@@ -116,7 +116,7 @@
     left:55px;
     bottom:150px;
     border:15px solid transparent;
-    border-top-color:lightskyblue; 
+    border-top-color:#FD8468; 
   }
   .right-chat:before{
     content: " ";

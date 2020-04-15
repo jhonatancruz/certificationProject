@@ -10,7 +10,8 @@
             <p>Chat</p>
           </div>
           <div class="col-md-4 col-sm-6 col-xs-6 right-first-section">
-          </div>
+            <a href="#"><i class="fa fa-times" aria-hidden="true" (click)="closeChat()"></i></a>
+            </div>
         </div>
       </div>
     </div>
@@ -24,7 +25,7 @@
             <div *ngIf="user===msg.user; else notSameUser">
               <li>
                 <div class="right-chat">
-                  <p>{{msg.time}} {{msg.text}}</p>
+                  <p>{{msg.text}}</p>
                 </div>
               </li>
             </div>
@@ -32,8 +33,7 @@
             <ng-template #notSameUser>
                   <li>
                     <div class="left-chat">
-                      <p>{{msg.text}}</p>
-                      <span>{{msg.time}}</span>
+                      <p>{{msg.user}}:{{msg.text}}</p>
                     </div>
                   </li>
             </ng-template>
