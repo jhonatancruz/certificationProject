@@ -3,6 +3,10 @@
     <div class="col-6">{{editNewsItem.description}}</div>
     <div class="col-2">{{editNewsItem.publishedAt | date}}</div>
     <div class="col-2">
-        <button (click)="handleDelete()">delete</button>
+        <div class="btn-group-vertical">
+            <button (click)="handleDelete()">delete</button> 
+            <button (click)="handleDelete()">edit</button>    
+        </div>
+        
     </div>
 </div>

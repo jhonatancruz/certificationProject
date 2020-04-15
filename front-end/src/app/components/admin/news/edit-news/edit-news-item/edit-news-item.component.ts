@@ -24,13 +24,13 @@ export class EditNewsItemComponent implements OnInit {
     .subscribe(
       () => {
         this.messenger.sendMsg({
-          msg: 'Product added!',
+          msg: 'News deleted!',
           type: 'success'
         })
       },
       () => {
         this.messenger.sendMsg({
-          msg: 'Product could not be added!',
+          msg: 'News could not be deleted!',
           type: 'danger'
         })
       }
