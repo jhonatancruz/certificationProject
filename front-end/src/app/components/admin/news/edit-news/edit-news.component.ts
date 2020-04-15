@@ -13,6 +13,10 @@ export class EditNewsComponent implements OnInit {
   news : News[] = [];
   query : string = '';
 
+  selectedNews : News[] = [];
+  selectedAmount : string = 'all';
+  
+
   constructor(
     private newsService : NewsService,
     private messenger : MessengerService) { }
@@ -22,7 +26,10 @@ export class EditNewsComponent implements OnInit {
 
     this.messenger.getMsg().subscribe(() => {
       this.loadNews(); //Event Trigger from messengerService
+      
     })
+    
+    
     
   }
 
@@ -30,8 +37,29 @@ export class EditNewsComponent implements OnInit {
   {
     this.newsService.getAllNews().subscribe((result : News[]) =>{
       this.news = result;
-      console.log(result);
+      // console.log(result);
+      this.selectedNews = this.news.slice();
+      console.log(this.selectedNews);
     })
+  }
+
+  handleEntryNChange(){
+    switch(this.selectedAmount){
+      case '5':
+        this.selectedNews = this.news.slice(0,5);
+        break;
+      case '10':
+        this.selectedNews = this.news.slice(0,10);
+        break;
+      case '20':
+        this.selectedNews = this.news.slice(0,20);
+        break;
+      default:
+        this.selectedNews = this.news.slice();
+    }
+
+    console.log(this.selectedNews);
+    
   }
 
 
