@@ -20,6 +20,9 @@ export class NewsService {
   getNewsByID(id:string){
     return this.http.get(this.uri+'/id/'+id);
   }
+  getTopNews(){
+    return this.http.get(this.uri+'/type'+'/topnews');
+  }
   getSportNews(){
     return this.http.get(this.uri+'/type'+'/sports');
   }
