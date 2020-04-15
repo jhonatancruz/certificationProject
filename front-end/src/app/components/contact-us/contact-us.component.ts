@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ContactusService } from 'src/app/services/contactus.service';
+import { MessengerService } from 'src/app/services/messenger/messenger.service';
+import { ContactService } from 'src/app/services/contact/contact.service';
 
 @Component({
   selector: 'app-contact-us',
@@ -10,18 +12,33 @@ export class ContactUsComponent implements OnInit {
   contact_email: string = '';
   contact_name: string = '';
   contact_message: string = '';
-  constructor(private contactservice: ContactusService) { }
+  constructor(
+    private contact : ContactService,
+    private messenger : MessengerService) { }
 
   handleSubmit(){
     const data = {
-      name: this.contact_name,
-      email: this.contact_email,
+      subject: this.contact_name,
+      to: this.contact_email,
       message: this.contact_message
     };
 
-    this.contactservice.sendEmail(data).subscribe(() => {
-      console.log('Sent email')
-    })
+    this.contact.sendEmail(data)
+    .subscribe(
+      () => {
+        this.messenger.sendMsg({
+          msg: 'Email sent!',
+          type: 'success'
+        })
+      },
+      () => {
+        this.messenger.sendMsg({
+          msg: 'Email could not be sent!',
+          type: 'danger'
+        })
+      }
+    )
+
 
     this.contact_email ='';
     this.contact_message = '';
