@@ -17,7 +17,7 @@ export class TopNewsSliderComponent implements OnInit {
     this.grabNews()
   }
   grabNews(){
-    this.newsService.getAllNews().subscribe((result : News[]) =>{
+    this.newsService.getTopNews().subscribe((result : News[]) =>{
       this.news = result.slice(result.length-4, result.length);
       console.log(result.slice(result.length-4, result.length));
     })
