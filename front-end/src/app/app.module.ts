@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { NgModule, Component } from '@angular/core';
 
 import { FormsModule } from '@angular/forms';
@@ -24,11 +25,16 @@ import { SportsComponent } from './components/home/sports/sports/sports.componen
 import { EditNewsItemComponent } from './components/admin/news/edit-news/edit-news-item/edit-news-item.component';
 import { AlertComponent } from './components/shared/alert/alert/alert.component';
 import { EditNewsItemFormComponent } from './components/admin/news/edit-news/edit-news-item/edit-news-item-form/edit-news-item-form/edit-news-item-form.component';
+import { DocumentListComponent } from './components/document-list/document-list.component';
+import { DocumentComponent } from './components/document/document.component';
+
+const config: SocketIoConfig = { url: 'http://localhost:4444', options: {} };
 
 // TODO: change/remove the app Component route
 const appRoutes: Routes = [
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuard] },
   { path: 'admin/login', component: AdminLoginComponent},
+  { path: 'chat', component: DocumentListComponent},
   { path: 'news/add', component: NewsFormComponent, canActivate: [AuthGuard] },
   { path: 'news/edit', component: EditNewsComponent, canActivate: [AuthGuard] },
   { path: 'news/edit/:id', component: EditNewsItemFormComponent, canActivate: [AuthGuard] },
@@ -62,13 +68,16 @@ const appRoutes: Routes = [
     SportsComponent,
     EditNewsItemComponent,
     AlertComponent,
-    EditNewsItemFormComponent
+    EditNewsItemFormComponent,
+    DocumentListComponent,
+    DocumentComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    SocketIoModule.forRoot(config)
   ],
   providers: [],
   bootstrap: [AppComponent]
