@@ -1,11 +1,12 @@
 <div class="row text-center">
-    <div class="col-2">{{editNewsItem.title}}</div>
-    <div class="col-6">{{editNewsItem.description}}</div>
+    <div class="col-3">{{editNewsItem.title}}</div>
+    <div class="col-5"><small>{{editNewsItem.description}}</small></div>
     <div class="col-2">{{editNewsItem.publishedAt | date}}</div>
     <div class="col-2">
         <div class="btn-group-vertical">
-            <button (click)="handleDelete()">delete</button> 
-            <button (click)="handleDelete()">edit</button>    
+
+            <button class="btn btn-warning" [routerLink]="['/news/edit', editNewsItem._id]">edit</button>    
+            <button class="btn btn-danger" (click)="handleDelete()">delete</button> 
         </div>
         
     </div>

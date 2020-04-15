@@ -23,6 +23,7 @@ import { PageNotFoundComponent } from './components/shared/page-not-found/page-n
 import { SportsComponent } from './components/home/sports/sports/sports.component';
 import { EditNewsItemComponent } from './components/admin/news/edit-news/edit-news-item/edit-news-item.component';
 import { AlertComponent } from './components/shared/alert/alert/alert.component';
+import { EditNewsItemFormComponent } from './components/admin/news/edit-news/edit-news-item/edit-news-item-form/edit-news-item-form/edit-news-item-form.component';
 
 // TODO: change/remove the app Component route
 const appRoutes: Routes = [
@@ -30,6 +31,7 @@ const appRoutes: Routes = [
   { path: 'admin/login', component: AdminLoginComponent},
   { path: 'news/add', component: NewsFormComponent, canActivate: [AuthGuard] },
   { path: 'news/edit', component: EditNewsComponent, canActivate: [AuthGuard] },
+  { path: 'news/edit/:id', component: EditNewsItemFormComponent, canActivate: [AuthGuard] },
   { path: 'home', component: HomeComponent },
   { path: 'sports', component: SportsComponent },
   { path: 'contact', component: ContactUsComponent },
@@ -59,7 +61,8 @@ const appRoutes: Routes = [
     PageNotFoundComponent,
     SportsComponent,
     EditNewsItemComponent,
-    AlertComponent
+    AlertComponent,
+    EditNewsItemFormComponent
   ],
   imports: [
     BrowserModule,
