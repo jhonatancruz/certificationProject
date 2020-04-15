@@ -18,8 +18,7 @@ export class SportsComponent implements OnInit {
   }
   grabSportNews(){
     this.newsService.getSportNews().subscribe((result : News[]) =>{
-      this.news = result.slice(result.length-10, result.length);
-      console.log(result.slice(result.length-4, result.length));
+      this.news = result.slice(result.length-12, result.length);
     })
   }
 
