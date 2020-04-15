@@ -27,6 +27,7 @@ import { AlertComponent } from './components/shared/alert/alert/alert.component'
 import { EditNewsItemFormComponent } from './components/admin/news/edit-news/edit-news-item/edit-news-item-form/edit-news-item-form/edit-news-item-form.component';
 import { DocumentListComponent } from './components/document-list/document-list.component';
 import { DocumentComponent } from './components/document/document.component';
+import { WeatherComponent } from './components/weather/weather/weather.component';
 
 const config: SocketIoConfig = { url: 'http://localhost:4444', options: {} };
 
@@ -70,7 +71,8 @@ const appRoutes: Routes = [
     AlertComponent,
     EditNewsItemFormComponent,
     DocumentListComponent,
-    DocumentComponent
+    DocumentComponent,
+    WeatherComponent
   ],
   imports: [
     BrowserModule,
