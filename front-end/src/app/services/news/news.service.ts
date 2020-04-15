@@ -28,6 +28,16 @@ export class NewsService {
     let options = this.generateAuthorizationHeader();
     return this.http.post(this.uri, data, options)
   }
+  
+  generateBreakingNews(){
+    let options = this.generateAuthorizationHeader();
+    return this.http.get(this.uri+'/breaking', options)
+  }
+
+  generateSportsNews(){
+    let options = this.generateAuthorizationHeader();
+    return this.http.get(this.uri+'/sports', options)
+  }
 
   editNews(id : string, data : any){
     let options = this.generateAuthorizationHeader();

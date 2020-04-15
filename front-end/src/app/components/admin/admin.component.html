@@ -26,13 +26,19 @@
 
             <div class="collapse" id="generateSportsNews">
                 <div class="card card-body">
-                    generateSportsNews
+                    Caution: By clicking this button, you will be generating <strong>Sports</strong> news using the News API. 
+                    Newly genegerated news will be stored in the database. 
+                    <button (click)="handleGenerateSportsNews()">generate sports news</button>
+                    <app-alert></app-alert>
                 </div>
             </div>
 
             <div class="collapse" id="generateBreakingNews">
                 <div class="card card-body">
-                    generateBreakingNews
+                    Caution: By clicking this button, you will be generating <strong>Breaking</strong> news using the News API. 
+                    Newly genegerated news will be stored in the database. 
+                    <button (click)="handleGenerateBreakingNews()">generate breaking news</button>
+                    <app-alert></app-alert>
                 </div>
             </div>
 
