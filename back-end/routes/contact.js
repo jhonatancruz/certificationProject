@@ -10,10 +10,10 @@ router.post('/', (req, res) => {
     const {subject, message, to}= req.body
     sgMail.setApiKey(apiKey)
     const msg = {
-        to: to,
+        to: process.env.SENDER_EMAIL,
         from: senderVerifiedEmail,
         subject: subject,
-        text: message
+        text: message+' '+to+' '
         // html: '<strong>and easy to do anywhere, even with Node.js</strong>',
       };
       //ES8
