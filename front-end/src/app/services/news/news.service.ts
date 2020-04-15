@@ -17,6 +17,10 @@ export class NewsService {
     return this.http.get(this.uri);
   }
 
+  getNewsByID(id:string){
+    return this.http.get(this.uri+'/'+id);
+  }
+
   addNews(data : any){
     let options = this.generateAuthorizationHeader();
     return this.http.post(this.uri, data, options)

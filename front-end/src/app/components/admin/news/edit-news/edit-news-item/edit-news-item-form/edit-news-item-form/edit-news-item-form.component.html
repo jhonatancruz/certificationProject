@@ -1,1 +1,85 @@
-<p>edit-news-item-form works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <app-admin-header></app-admin-header>
+        </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <app-alert></app-alert>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <form (submit)="handleEdit()">
+      
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input type="text" id="title" class="form-control" name="title" [(ngModel)]="title">
+        </div>
+       
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea type="text" id="description" class="form-control" name="description" [(ngModel)]="description"> </textarea>
+        </div>
+
+        <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label for="title">Source name</label>
+                <input type="text" id="sourceName" class="form-control" name="sourceName" [(ngModel)]="sourceName">
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="form-group">
+                <label for="title">Author</label>
+                <input type="text" id="author" class="form-control" name="author" [(ngModel)]="author">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="type">Select News Type</label>
+              <select class="custom-select" name="type" [(ngModel)]="type">
+                  <option value="general" selected>General</option>
+                  <option value="sports" selected>Sports</option>
+                  <option value="entertainment">Entertainment</option>
+                  <option value="business">Business</option>
+                  <option value="topnews">Breaking</option>
+                </select>
+            </div>
+
+        </div>
+
+  
+        <div class="form-group">
+          <label for="url">Url</label>
+          <input type="text" id="url" class="form-control" name="url" [(ngModel)]="url">
+        </div>
+  
+        <div class="form-group">
+          <label for="url to image">Url to Image</label>
+          <input type="text" id="urlToImage" class="form-control" name="urlToImage" [(ngModel)]="urlToImage">
+        </div>
+
+
+        <div class="form-group">
+          <label for="content">Content</label>
+          <textarea type="text" id="content" class="form-control" name="content" [(ngModel)]="content" rows="6"> </textarea>
+        </div>
+  
+        <div class="text-center">
+          <button class="btn btn-primary">Update</button>
+        </div>
+
+        <div class="text-center">
+            <a [routerLink]="['/news/edit']"> < Go back to <strong><i> Edit News </i></strong> </a>
+        </div>
+        
+      </form>
+      </div>
+    </div>
+  
+</div>
