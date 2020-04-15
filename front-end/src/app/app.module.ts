@@ -28,6 +28,7 @@ import { EditNewsItemFormComponent } from './components/admin/news/edit-news/edi
 import { DocumentListComponent } from './components/document-list/document-list.component';
 import { DocumentComponent } from './components/document/document.component';
 import { WeatherComponent } from './components/weather/weather/weather.component';
+import { KelvinToFahrenheitPipe } from './pipes/kelvin-to-fahrenheit/kelvin-to-fahrenheit.pipe';
 
 const config: SocketIoConfig = { url: 'http://localhost:4444', options: {} };
 
@@ -72,7 +73,8 @@ const appRoutes: Routes = [
     EditNewsItemFormComponent,
     DocumentListComponent,
     DocumentComponent,
-    WeatherComponent
+    WeatherComponent,
+    KelvinToFahrenheitPipe
   ],
   imports: [
     BrowserModule,

@@ -12,7 +12,13 @@ export class WeatherComponent implements OnInit {
   lat : string = '40.712776';
   lon : string = '-74.005974';
 
-  weatherReport : any = {};
+  name : string = '';
+  temp : string = '';
+  feels_like : string = '';
+  temp_min : string = '';
+  temp_max : string = '';
+  humidity : string = '';
+
 
   constructor(
     private weatherService : WeatherService,
@@ -45,8 +51,17 @@ export class WeatherComponent implements OnInit {
     }
 
     this.weatherService.getWeather(location)
-    .subscribe(result =>{
+    .subscribe((result : any) =>{
       console.log(result);
+      console.log('weather ' + result.main.temp);
+      console.log('weather ' + result.name);
+
+      this.name = result.name;
+      this.temp = result.main.temp;
+      this.feels_like = result.main.feels_like;
+      this.temp_min = result.main.temp_min;
+      this.temp_max = result.main.temp_max;
+      this.humidity = result.main.humidity;
       
     })
 
