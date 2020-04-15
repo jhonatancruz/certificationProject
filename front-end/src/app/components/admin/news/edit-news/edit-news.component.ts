@@ -11,6 +11,7 @@ import { MessengerService } from 'src/app/services/messenger/messenger.service';
 export class EditNewsComponent implements OnInit {
 
   news : News[] = [];
+  query : string = '';
 
   constructor(
     private newsService : NewsService,
