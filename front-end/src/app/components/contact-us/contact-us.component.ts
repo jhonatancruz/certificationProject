@@ -11,39 +11,70 @@ export class ContactUsComponent implements OnInit {
   contact_email: string = '';
   contact_name: string = '';
   contact_message: string = '';
-  sent_success:string=''
+  sent_success:string='';
+
+  contactNameErr:string = '';
+  contactEmailErr:string = '';
+  contactMessageErr:string = '';
+
   constructor(
     private contact : ContactService,
     private messenger : MessengerService) { }
 
-  handleSubmit(){
-    const data = {
-      subject: this.contact_name,
-      to: this.contact_email,
-      message: this.contact_message
-    };
 
-    this.contact.sendEmail(data)
-    .subscribe(
-      () => {
-        this.messenger.sendMsg({
-          msg: 'Email sent!',
-          type: 'success'
-        })
-      },
-      () => {
-        this.messenger.sendMsg({
-          msg: 'Email could not be sent!',
-          type: 'danger'
-        })
+    validate() {
+      let valid = true;
+      this.contactNameErr = '';
+      this.contactEmailErr = '';
+      this.contactMessageErr = '';
+  
+      if (this.contact_name === '') {
+        this.contactNameErr = 'Name cannot be blank';
+        valid = false;
       }
-    )
-    this.sent_success='Successfully send email!'
+  
+      if (this.contact_email === '') {
+        this.contactEmailErr = 'Email cannot be blank';
+        valid = false;
+      }
 
+      if (this.contact_message === '') {
+        this.contactMessageErr = 'Message cannot be blank';
+        valid = false;
+      }
+      return valid;
+    }
 
-    this.contact_email ='';
-    this.contact_message = '';
-    this.contact_name = '';
+  handleSubmit(){
+    if (this.validate()){
+      const data = {
+        subject: this.contact_name,
+        to: this.contact_email,
+        message: this.contact_message
+      };
+  
+      this.contact.sendEmail(data)
+      .subscribe(
+        () => {
+          this.messenger.sendMsg({
+            msg: 'Email sent!',
+            type: 'success'
+          })
+        },
+        () => {
+          this.messenger.sendMsg({
+            msg: 'Email could not be sent!',
+            type: 'danger'
+          })
+        }
+      )
+      this.sent_success='Successfully sent email!'
+  
+  
+      this.contact_email ='';
+      this.contact_message = '';
+      this.contact_name = '';
+    }
   }
 
   ngOnInit(): void {
