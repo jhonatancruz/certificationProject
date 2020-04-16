@@ -14,9 +14,7 @@ router.post('/', (req, res) => {
         from: senderVerifiedEmail,
         subject: subject,
         text: message+' '+to+' '
-        // html: '<strong>and easy to do anywhere, even with Node.js</strong>',
       };
-      //ES8
       (async () => {
         try {
           await sgMail.send(msg);

@@ -85,7 +85,6 @@ async function query(query) {
         language: 'en',
         country: 'us'
     }).then(response => {
-        console.log(response)
         let allNews = []
         response.articles.forEach((article) => {
             let sourceName = article.source.name
