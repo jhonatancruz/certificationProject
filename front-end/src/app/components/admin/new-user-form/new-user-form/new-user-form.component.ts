@@ -54,6 +54,11 @@ export class NewUserFormComponent implements OnInit {
             }
           )
         }
+        this.name = '';
+        this.email = '';
+        this.username = '';
+        this.password = '';
+
       }
 
 }
