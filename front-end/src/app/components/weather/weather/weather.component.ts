@@ -27,8 +27,15 @@ export class WeatherComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.defaultWeatherValues()
     this.loadWeatherReport()
-  } 
+  }
+  defaultWeatherValues(){
+    if(localStorage.getItem('lat')===null){
+      this.lat='40.712776';
+      this.lon='-74.005974';
+    }
+  }
   checkIfUpdated(){
     if(localStorage.getItem('lat') && localStorage.getItem('lon')){
       this.isUpdated=true
