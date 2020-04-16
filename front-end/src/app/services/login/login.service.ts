@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from 'src/app/models/user/user';
 
-const loginUri = 'http://localhost:3000/login/login';
-const registerUri = 'http://localhost:3000/login/register';
+const loginUri = 'http://localhost:3000/authorization/login';
+const registerUri = 'http://localhost:3000/authorization/register';
 
 
 @Injectable({
