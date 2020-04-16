@@ -19,6 +19,11 @@ export class NewsFormComponent implements OnInit {
     urlToImage : string = '';
     content : string = '';
 
+    titleErr : string = '';
+    descriptionErr : string = '';
+    contentErr : string = '';
+
+
     constructor( 
     
       private newsService: NewsService,
@@ -29,36 +34,62 @@ export class NewsFormComponent implements OnInit {
     ngOnInit(): void {
     }
 
-    handleSubmit(){
-
-      const newNews = {
-        sourceName : this.sourceName,
-        author : this.author,
-        title : this.title,
-        description : this.description,
-        type : this.type,
-        url : this.url,
-        urlToImage : this.urlToImage,
-        content : this.content  
+    validate() {
+      let valid = true;
+      this.titleErr = '';
+      this.descriptionErr = '';
+      this.contentErr= '';
+  
+  
+      if (this.title === '') {
+        this.titleErr = 'Title cannot be blank';
+        valid = false;
+      }
+  
+      if (this.description === '') {
+        this.descriptionErr = 'Description cannot be blank';
+        valid = false;
       }
 
-      this.newsService.addNews(newNews)
-      .subscribe(
-        () => {
-          this.messenger.sendMsg({
-            msg: 'News added!',
-            type: 'success'
-          })
-        },
-        () => {
-          this.messenger.sendMsg({
-            msg: 'News could not be added!',
-            type: 'danger'
-          })
+      if (this.content === '') {
+        this.contentErr = 'Description cannot be blank';
+        valid = false;
+      }
+
+      return valid;
+    }
+
+    handleSubmit(){
+      if (this.validate()){
+        const newNews = {
+          sourceName : this.sourceName,
+          author : this.author,
+          title : this.title,
+          description : this.description,
+          type : this.type,
+          url : this.url,
+          urlToImage : this.urlToImage,
+          content : this.content  
         }
-      )
-
-
+  
+        this.newsService.addNews(newNews)
+        .subscribe(
+          () => {
+            this.messenger.sendMsg({
+              msg: 'News added!',
+              type: 'success'
+            })
+          },
+          () => {
+            this.messenger.sendMsg({
+              msg: 'News could not be added!',
+              type: 'danger'
+            })
+          }
+        )
+  
+  
+      }
     }
 }
 
