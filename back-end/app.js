@@ -6,7 +6,7 @@ const cors = require('cors')
 
 const weatherRoutes = require('./routes/weather')
 const newsRoutes = require('./routes/news')
-const loginRoutes = require('./routes/login')
+const authorizationRoutes = require('./routes/auhtorization')
 const userRoutes = require('./routes/users')
 const contactRoutes = require('./routes/contact')
 
@@ -28,7 +28,7 @@ app.use(bodyParser.json())
 
 app.use('/weather', weatherRoutes)
 app.use('/news', newsRoutes)
-app.use('/login', loginRoutes)
+app.use('/authorization', authorizationRoutes)
 app.use('/users', userRoutes)
 app.use('/contact', contactRoutes)
 
