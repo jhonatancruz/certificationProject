@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { News } from 'src/app/models/news/news';
 import { NewsService } from 'src/app/services/news/news.service';
 import { MessengerService } from 'src/app/services/messenger/messenger.service';
@@ -16,7 +16,7 @@ export class EditNewsComponent implements OnInit {
   selectedNews : News[] = [];
   selectedAmount : string = '10';
   
-
+  @Input() editNewsItem : News;
   constructor(
     private newsService : NewsService,
     private messenger : MessengerService) { }
@@ -61,6 +61,24 @@ export class EditNewsComponent implements OnInit {
     console.log(this.selectedNews);
     
   }
+  handleDelete(id){
+    this.newsService.deleteNewsByID(id)
+    .subscribe(
+      () => {
+        this.messenger.sendMsg({
+          msg: 'News deleted!',
+          type: 'success'
+        })
+      },
+      () => {
+        this.messenger.sendMsg({
+          msg: 'News could not be deleted!',
+          type: 'danger'
+        })
+      }
+    )
+  }
+
 
 
 }
