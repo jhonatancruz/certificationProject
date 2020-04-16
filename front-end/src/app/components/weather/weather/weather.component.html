@@ -19,7 +19,13 @@
             <div class="col-2">{{humidity}}%</div>
         </div>
     </div>
-    <div class="card-footer">
-        <a (click)="getLocation()" class="btn btn-danger">Update my location</a>
+    <div class="card-footer" *ngIf="checkIfUpdated(); else notUpdated">
+        <a class="btn btn-success" disabled>Location Updated</a>
     </div>
+    <ng-template #notUpdated>
+        <div class="card-footer">
+            <a (click)="getLocation()" class="btn btn-danger">Update Location</a>
+        </div>    
+    </ng-template>
+
 </div>

@@ -18,6 +18,7 @@ export class WeatherComponent implements OnInit {
   temp_min : string = '';
   temp_max : string = '';
   humidity : string = '';
+  isUpdated:boolean= false;
 
 
   constructor(
@@ -28,7 +29,12 @@ export class WeatherComponent implements OnInit {
   ngOnInit(): void {
     this.loadWeatherReport()
   } 
-
+  checkIfUpdated(){
+    if(localStorage.getItem('lat') && localStorage.getItem('lon')){
+      this.isUpdated=true
+    }
+    return this.isUpdated
+  }
   getLocation()
   {
     this.locationService.getPosition()
@@ -40,6 +46,7 @@ export class WeatherComponent implements OnInit {
          this.lon = pos.lon;
          localStorage.setItem('lat',this.lat)
          localStorage.setItem('lon',this.lon)
+         this.isUpdated=true
       })
       .then(() => {
         this.loadWeatherReport()
@@ -66,7 +73,6 @@ export class WeatherComponent implements OnInit {
       this.humidity = result.main.humidity;
       
     })
-
   }
 
 
