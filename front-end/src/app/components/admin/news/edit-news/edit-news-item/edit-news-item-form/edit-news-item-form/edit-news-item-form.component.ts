@@ -22,6 +22,10 @@ export class EditNewsItemFormComponent implements OnInit {
 
     id : string = '';
 
+    titleErr : string = '';
+    descriptionErr : string = '';
+    contentErr : string = '';
+
   constructor(
     private route : ActivatedRoute,
     private newsService : NewsService,
@@ -43,33 +47,60 @@ export class EditNewsItemFormComponent implements OnInit {
     })
   }
 
-  handleEdit(){
-    const updatedNews = {
-      sourceName : this.sourceName,
-      author : this.author,
-      title : this.title,
-      description : this.description,
-      type : this.type,
-      url : this.url,
-      urlToImage : this.urlToImage,
-      content : this.content  
+  validate() {
+    let valid = true;
+    this.titleErr = '';
+    this.descriptionErr = '';
+    this.contentErr= '';
+
+
+    if (this.title === '') {
+      this.titleErr = 'Title cannot be blank';
+      valid = false;
     }
 
-    this.newsService.editNews(this.id, updatedNews)
-    .subscribe(
-      () => {
-        this.messenger.sendMsg({
-          msg: 'News updated!',
-          type: 'success'
-        })
-      },
-      () => {
-        this.messenger.sendMsg({
-          msg: 'News could not be updated!',
-          type: 'danger'
-        })
+    if (this.description === '') {
+      this.descriptionErr = 'Description cannot be blank';
+      valid = false;
+    }
+
+    if (this.content === '') {
+      this.contentErr = 'Description cannot be blank';
+      valid = false;
+    }
+
+    return valid;
+  }
+
+  handleEdit(){
+    if (this.validate()){
+      const updatedNews = {
+        sourceName : this.sourceName,
+        author : this.author,
+        title : this.title,
+        description : this.description,
+        type : this.type,
+        url : this.url,
+        urlToImage : this.urlToImage,
+        content : this.content  
       }
-    )
+  
+      this.newsService.editNews(this.id, updatedNews)
+      .subscribe(
+        () => {
+          this.messenger.sendMsg({
+            msg: 'News updated!',
+            type: 'success'
+          })
+        },
+        () => {
+          this.messenger.sendMsg({
+            msg: 'News could not be updated!',
+            type: 'danger'
+          })
+        }
+      )
+    }
   }
 
 }
