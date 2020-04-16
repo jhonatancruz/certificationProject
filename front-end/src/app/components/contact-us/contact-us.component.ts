@@ -11,6 +11,7 @@ export class ContactUsComponent implements OnInit {
   contact_email: string = '';
   contact_name: string = '';
   contact_message: string = '';
+  sent_success:string=''
   constructor(
     private contact : ContactService,
     private messenger : MessengerService) { }
@@ -37,6 +38,7 @@ export class ContactUsComponent implements OnInit {
         })
       }
     )
+    this.sent_success='Successfully send email!'
 
 
     this.contact_email ='';
