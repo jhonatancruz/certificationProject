@@ -14,7 +14,7 @@ export class EditNewsComponent implements OnInit {
   query : string = '';
 
   selectedNews : News[] = [];
-  selectedAmount : string = 'all';
+  selectedAmount : string = '10';
   
 
   constructor(
@@ -38,7 +38,7 @@ export class EditNewsComponent implements OnInit {
     this.newsService.getAllNews().subscribe((result : News[]) =>{
       this.news = result;
       // console.log(result);
-      this.selectedNews = this.news.slice();
+      this.selectedNews = this.news.slice(0,10);
       console.log(this.selectedNews);
     })
   }
