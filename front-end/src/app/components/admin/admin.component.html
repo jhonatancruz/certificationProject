@@ -1,46 +1,6 @@
 <app-admin-header></app-admin-header>
+
 <div class="container">
-    <div class="row">
-        <div class="col">
-            <p>
-                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#addNewAdmin" aria-expanded="false" aria-controls="collapseExample">
-                    Add new admin
-                </button>
-
-                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#generateSportsNews" aria-expanded="false" aria-controls="collapseExample">
-                    Generate Sports News
-                </button>
-
-                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#generateBreakingNews" aria-expanded="false" aria-controls="collapseExample">
-                    Generate Breaking News
-                </button>
-            </p>
-        
-            <div class="collapse" id="addNewAdmin">
-                <div class="card card-body">
-                    <app-new-user-form></app-new-user-form>
-                </div>
-            </div>
-
-            <div class="collapse" id="generateSportsNews">
-                <div class="card card-body">
-                    Caution: By clicking this button, you will be generating <strong>Sports</strong> news using the News API. 
-                    Newly genegerated news will be stored in the database. 
-                    <button (click)="handleGenerateSportsNews()">generate sports news</button>
-                    <app-alert></app-alert>
-                </div>
-            </div>
-
-            <div class="collapse" id="generateBreakingNews">
-                <div class="card card-body">
-                    Caution: By clicking this button, you will be generating <strong>Breaking</strong> news using the News API. 
-                    Newly genegerated news will be stored in the database. 
-                    <button (click)="handleGenerateBreakingNews()">generate breaking news</button>
-                    <app-alert></app-alert>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="row">
         <div class="col">
             <br> <br>
@@ -48,4 +8,43 @@
         </div>
     </div>
     <br>
+    <hr>
+    <div class="row">
+        <div class="col-md-4">
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#addNewAdmin" aria-expanded="false" aria-controls="collapseExample">
+                Add new admin
+            </button>
+            <div class="collapse" id="addNewAdmin">
+                <div class="card card-body">
+                    <app-new-user-form></app-new-user-form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 text-center">
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#generateSportsNews" aria-expanded="false" aria-controls="collapseExample">
+                Generate Sports News
+            </button>
+            <div class="collapse" id="generateSportsNews">
+                <div class="card card-body">
+                    Caution: By clicking this button, you will be generating <strong>Sports</strong> news using the News API. 
+                    Newly genegerated news will be stored in the database. 
+                    <button class="btn btn-warning" (click)="handleGenerateSportsNews()">Generate</button>
+                    <app-alert></app-alert>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <button class="btn btn-primary float-right" type="button" data-toggle="collapse" data-target="#generateBreakingNews" aria-expanded="false" aria-controls="collapseExample">
+                Generate Breaking News
+            </button>
+            <div class="collapse" id="generateBreakingNews">
+                <div class="card card-body">
+                    Caution: By clicking this button, you will be generating <strong>Breaking</strong> news using the News API. 
+                    Newly genegerated news will be stored in the database. 
+                    <button class="btn btn-warning" (click)="handleGenerateBreakingNews()">Generate</button>
+                    <app-alert></app-alert>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
