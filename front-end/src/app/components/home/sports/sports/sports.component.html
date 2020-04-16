@@ -1,9 +1,9 @@
 <app-header></app-header>
-
 <div class="container">
     <h1>Sport News</h1>
+    <hr>
     <div class="row">
-        <div class="col-lg-4"  *ngFor="let n of news">
+        <div class="col-md-4"  *ngFor="let n of news">
             <div class="card">
                 <div class="card-header">{{n.title}}</div>
                 <img class="card-img-top" src={{n.urlToImage}} alt="Card image cap">
@@ -14,7 +14,4 @@
               </div>
         </div>
     </div>
-    <br>
-
-
 </div>
