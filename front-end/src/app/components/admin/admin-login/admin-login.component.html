@@ -9,14 +9,14 @@
                 <h3 class="display-4">Admin Login</h3>
                 <form (submit)="handleSubmit()">
                     <div class="form-group">
-                      <label for="exampleInputEmail1">Username:</label>
+                      <label for="exampleInputEmail1">Username <span class="mandatory-field">*</span></label>
                       <input type="text" name="username" class="form-control" placeholder="Enter Username" [(ngModel)]="username" autocomplete="off">
                       <div *ngIf="usernameErr !== ''" class="alert alert-danger">
                         <div>{{ usernameErr }}</div>
                       </div>
                     </div>
                     <div class="form-group">
-                      <label for="exampleInputPassword1">Password:</label>
+                      <label for="exampleInputPassword1">Password <span class="mandatory-field">*</span></label>
                       <input type="password" name="password" class="form-control" placeholder="Enter Password" [(ngModel)]="password" autocomplete="off">
                       <div *ngIf="passwordErr !== ''" class="alert alert-danger">
                         <div>{{ passwordErr }}</div>
