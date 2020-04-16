@@ -9,8 +9,8 @@ import { LocationService } from 'src/app/services/location/location.service';
 })
 export class WeatherComponent implements OnInit {
 
-  lat : string = '40.712776';
-  lon : string = '-74.005974';
+  lat : string = localStorage.getItem('lat');
+  lon : string = localStorage.getItem('lon');
 
   name : string = '';
   temp : string = '';
@@ -27,7 +27,7 @@ export class WeatherComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadWeatherReport()
-  }
+  } 
 
   getLocation()
   {
@@ -38,6 +38,8 @@ export class WeatherComponent implements OnInit {
 
          this.lat = pos.lat;
          this.lon = pos.lon;
+         localStorage.setItem('lat',this.lat)
+         localStorage.setItem('lon',this.lon)
       })
       .then(() => {
         this.loadWeatherReport()

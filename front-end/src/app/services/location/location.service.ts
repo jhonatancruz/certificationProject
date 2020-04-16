@@ -9,16 +9,17 @@ export class LocationService {
 
   getPosition(): Promise<any>
   {
-    return new Promise((resolve, reject) => {
+      return new Promise((resolve, reject) => {
 
-      navigator.geolocation.getCurrentPosition(resp => {
+        navigator.geolocation.getCurrentPosition(resp => {
+  
+            resolve({lon: resp.coords.longitude, lat: resp.coords.latitude});
+          },
+          err => {
+            reject(err);
+          });
+      });
+    }
 
-          resolve({lon: resp.coords.longitude, lat: resp.coords.latitude});
-        },
-        err => {
-          reject(err);
-        });
-    });
 
   }
-}
