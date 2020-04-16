@@ -11,6 +11,10 @@ export class AdminLoginComponent implements OnInit {
 
   username: string = '';
   password: string = '';
+  
+  usernameErr: string = '';
+  passwordErr: string = '';
+  loginErr: string = '';
 
   constructor(
     private loginService : LoginService,
@@ -20,14 +24,34 @@ export class AdminLoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  validate() {
+    let valid = true;
+    this.usernameErr = '';
+    this.passwordErr = '';
+
+    if (this.username === '') {
+      this.usernameErr = 'Username cannot be blank';
+      valid = false;
+    }
+
+    if (this.password === '') {
+      this.passwordErr = 'Description cannot be blank';
+      valid = false;
+    }
+    return valid;
+  }
+
   async handleSubmit()
   {
-    if (await this.loginService.validate(this.username, this.password)){
-      this.router.navigate(['/admin'])
-    } else{
-      console.log('login failure');
+    if(this.validate()){
+      if (await this.loginService.validate(this.username, this.password)){
+        this.router.navigate(['/admin'])
+      } else{
+        console.log('login failure');
+        this.loginErr = 'username or password is invalid!'
+      }
+   
     }
- 
   }
 
 }
