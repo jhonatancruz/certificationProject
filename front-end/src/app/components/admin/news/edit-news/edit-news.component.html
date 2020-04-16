@@ -28,6 +28,8 @@
 
                     <div class="col">
                         <div class="form-group">
+                             <label for="type">Total <span class="badge">{{news.length}}</span> entries</label>
+
                             <select class="custom-select" name="type" [(ngModel)]="selectedAmount" (change)="handleEntryNChange()">
                                 <option value="all" selected>Show All entries</option>
                                 <option value="5" selected>5 entries</option>
