@@ -14,8 +14,8 @@
                 <div class="carousel-inner">
                   <div class="carousel-item active">
                     <img class="rounded d-block w-100" src={{news[0].urlToImage}} alt="First slide" height="450"  style="opacity: 0.70;">
-                    <div class="carousel-caption d-none d-sm-block">
-                        <h2 style="background-color:#343a40;opacity: 0.95;">{{news[0].title}}</h2>
+                    <div class="carousel-caption d-sm-block">
+                        <h2 style="background-color:#1f305d;opacity: 0.75;">{{news[0].title}}</h2>
                       </div>
                   </div>
                   <div class="carousel-item">
@@ -48,47 +48,52 @@
     <div class="row">
         <div class="col">
           <div class="card">
-            <div class="card-header" style="font-style:italic"><b>Title: </b>{{news[0].title}}</div>
+            <div class="card-header" style="font-style:italic"><b>{{news[0].title}}</b></div>
             <div class="card-body">
-              <p class="card-text"><b>Description: </b>{{news[0].description}}</p>
-              <a class="btn btn-info btn-md" href={{news[0].url}} role="button">Read More</a>
-
+              <p class="card-text">{{news[0].description}}</p>
+            </div>
+            <div class="card-footer text-muted">
+              Want to read more? <a class="btn btn-link btn-md" href={{news[0].url}} role="button">Click Here!</a>
             </div>
           </div>
         </div>
         <div class="col">
           <div class="card" >
-            <div class="card-header" style="font-style:italic"><b>Title: </b>{{news[1].title}}</div>
+            <div class="card-header" style="font-style:italic"><b>{{news[1].title}}</b></div>
             <div class="card-body">
-              <p class="card-text"><b>Description: </b>{{news[1].description}}</p>
-              <a class="btn btn-info btn-md" href={{news[1].url}} role="button">Read More</a>
-
+              <p class="card-text">{{news[1].description}}</p>
+            </div>
+            <div class="card-footer text-muted">
+              Want to read more? <a class="btn btn-link btn-md" href={{news[1].url}} role="button">Click Here!</a>
             </div>
           </div>
         </div>
         <div class="col">
           <div class="card">
-            <div class="card-header" style="font-style:italic"><b>Title: </b>{{news[2].title}}</div>
+            <div class="card-header" style="font-style:italic"><b>{{news[2].title}}</b></div>
             <div class="card-body">
-              <p class="card-text"><b>Description: </b>{{news[2].description}}</p>
-              <a class="btn btn-info btn-md" href={{news[2].url}} role="button">Read More</a>
+              <p class="card-text">{{news[2].description}}</p>
+            </div>
+            <div class="card-footer text-muted">
+              Want to read more? <a class="btn btn-link btn-md" href={{news[2].url}} role="button">Click Here!</a>
             </div>
           </div>
         </div>
     </div>
+    <h1>Breaking News</h1>
     <hr>
     <div class="row">
-      <div class="jumbotron">
-        <h2 class="display-4">{{news[3].title}}</h2>
-        <img class="d-block w-100" src={{news[3].urlToImage}} alt="Third slide" height="450" style="opacity: 0.70;">
-        <h3>Author: {{news[3].author}}</h3>
-        <p class="lead">{{news[3].description}}</p>
-        <hr class="my-4">
-        <p>{{news[3].content}}</p>
-        <p class="lead">
-          <a class="btn btn-info btn-md" href={{news[3].url}} role="button">Read More</a>
-        </p>
+      <div class="col-lg-6">
+        <h2><b>{{news[3].title}}</b></h2>
+        <p><b>Author: </b>{{news[3].author}}</p>
+        <p style="font-style:italic">{{news[3].description}}</p>
+        <p >{{news[3].content}}</p>
+        Want to read more? <a class="btn btn-link btn-md" href={{news[3].url}} role="button">Click Here!</a>
       </div>
-
+      <div class="col-lg-6">
+        <img class="img-fluid rounded" src={{news[3].urlToImage}} alt="">
+      </div>
     </div>
+    <br>
+    <br>
 </div>
